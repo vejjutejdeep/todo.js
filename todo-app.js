@@ -1,4 +1,4 @@
-const taskList = []
+let taskList = []
 
 class Task {
     constructor(name, dueDate, isDone) {
@@ -22,9 +22,25 @@ class Task {
     }
 }
 
+function render() {
+    const listUI = document.getElementById("todolist")
+    listUI.innerHTML = "";
+    if (taskList.length === 0) listUI.innerHTML = "No tasks todo :-)"
+    taskList.forEach((task) => {
+        listUI.innerHTML += task.toString();
+    })
+}
 
-function deleteTask(index) {
-
+function deleteTask(taskId) {
+    taskList = taskList.filter(
+        (t) => {
+            if(t.taskId != taskId) 
+            return t;
+        }
+    );
+    // update the DOM
+    render()
+    console.log(taskList);
 }
 
 function createTask() {
@@ -34,8 +50,8 @@ function createTask() {
 
 function addTask(t) {
     taskList.push(t)
-    const list = document.getElementById("todolist")
-    list.innerHTML += t.toString()
+    render();
+    console.log(taskList)
 }
 
 function init() {

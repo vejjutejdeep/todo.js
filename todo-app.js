@@ -47,7 +47,8 @@ function deleteTask(taskId) {
 
 function createTask() {
     const taskName = document.getElementById("taskName").value;
-    addTask(new Task(taskName, new Date(), false));
+    const taskDate = document.getElementById("taskDate").value;
+    addTask(new Task(taskName, taskDate, false));
 }
 
 function addTask(t) {

@@ -1,5 +1,8 @@
+const taskList = []
+
 class Task {
     constructor(name, dueDate, isDone) {
+        this.taskId = Date.now();
         this.name = name;
         this.dueDate = dueDate;
         this.isDone = isDone;
@@ -11,9 +14,17 @@ class Task {
         htmlText += ", " + this.dueDate.getDate() 
                  + "/" + this.dueDate.getMonth();
         htmlText += '<input type="checkbox" name="isDone" id="isDone">'
+        htmlText += '<button onclick="deleteTask(';
+        htmlText += this.taskId;
+        htmlText += ')">Delete</button>';
         htmlText += '</div></li>';
         return htmlText;
     }
+}
+
+
+function deleteTask(index) {
+
 }
 
 function createTask() {
@@ -22,6 +33,7 @@ function createTask() {
 }
 
 function addTask(t) {
+    taskList.push(t)
     const list = document.getElementById("todolist")
     list.innerHTML += t.toString()
 }

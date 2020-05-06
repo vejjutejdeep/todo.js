@@ -38,6 +38,8 @@ function deleteTask(taskId) {
             return t;
         }
     );
+    // call a web api to update the database on the server
+    
     // update the DOM
     render()
     console.log(taskList);
@@ -50,12 +52,20 @@ function createTask() {
 
 function addTask(t) {
     taskList.push(t)
+    // call a web api to update the database on the server
     render();
     console.log(taskList)
 }
 
 function init() {
     console.log("init called");
+
+    // call a web api to retrieve the task list
+    // write a function to send a api request
+    // get the JSON
+    // assign it to taskList
+    // render
+
     task = new Task("welcome task", new Date("May 30, 2020"), false);
     addTask(task);
     console.log(task);

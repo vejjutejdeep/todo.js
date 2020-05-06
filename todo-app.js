@@ -6,7 +6,13 @@ class Task {
     }
 
     toString() {
-        return "<li><div>" + this.name + "</div></li>";
+        let htmlText = '<li class="task" ><div>'
+        htmlText += this.name
+        htmlText += ", " + this.dueDate.getDate() 
+                 + "/" + this.dueDate.getMonth();
+        htmlText += '<input type="checkbox" name="isDone" id="isDone">'
+        htmlText += '</div></li>';
+        return htmlText;
     }
 }
 

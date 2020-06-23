@@ -11,8 +11,7 @@ class Task {
     toString() {
         let htmlText = '<li class="task" ><div>'
         htmlText += this.name
-        htmlText += ", " + this.dueDate.getDate() 
-                 + "/" + this.dueDate.getMonth();
+        htmlText += this.dueDate;
         htmlText += '<input type="checkbox" name="isDone" id="isDone">'
         htmlText += '<button onclick="deleteTask(';
         htmlText += this.taskId;
@@ -48,7 +47,10 @@ function deleteTask(taskId) {
 function createTask() {
     const taskName = document.getElementById("taskName").value;
     const taskDate = document.getElementById("taskDate").value;
+    console.log(taskDate)
     addTask(new Task(taskName, taskDate, false));
+    document.querySelector("#taskName").value = '';
+    document.querySelector("#taskDate").value = '';
 }
 
 function addTask(t) {
